@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/components/SearchBar/SearchBar.module.scss","SearchBar.module.css"],"names":[],"mappings":"AAAA;EACC,mBAAA;ACCD","file":"SearchBar.module.css","sourcesContent":[".input {\n\tmargin-bottom: 30px;\n}\n",".input {\n  margin-bottom: 30px;\n}"]}

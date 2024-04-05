@@ -1,0 +1,8 @@
+.issuesList {
+	display: flex;
+	column-gap: 20px;
+}
+
+.listItem {
+	flex-basis: calc((100% - 2 * 20px) / 3);
+}

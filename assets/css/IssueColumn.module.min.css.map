@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/components/IssueColumn/IssueColumn.module.scss"],"names":[],"mappings":"AAAA,QACC,qBAAA,CAGD,OACC,iBAAA","file":"IssueColumn.module.min.css","sourcesContent":[".column {\n\tbackground-color: grey;\n}\n\n.title {\n\ttext-align: center;\n}\n"]}

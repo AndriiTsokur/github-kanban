@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/components/Main/Main.module.scss"],"names":[],"mappings":"AAAA,YACC,mBAAA,CAAA,mBAAA,CAAA,YAAA,CACA,uBAAA,CAAA,oBAAA,CAAA,eAAA,CAGD,UACC,6CAAA,CAAA,gCAAA","file":"Main.module.min.css","sourcesContent":[".issuesList {\n\tdisplay: flex;\n\tcolumn-gap: 20px;\n}\n\n.listItem {\n\tflex-basis: calc((100% - 2 * 20px) / 3);\n}\n"]}
