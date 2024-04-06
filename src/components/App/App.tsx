@@ -1,4 +1,4 @@
-import { SearchBar, Main } from '@/components';
+import { SearchBar, Main } from '../';
 
 export const App: React.FC = () => {
 	return (
