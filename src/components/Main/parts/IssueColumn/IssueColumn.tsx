@@ -1,10 +1,22 @@
 import styles from './IssueColumn.module.scss';
-import { PropsT } from './IssueColumn.types';
+import { IssueColumnPropsT } from './IssueColumn.types';
+import { Issue } from '../Issue';
 
-export const IssueColumn = ({ title }: PropsT) => {
+export const IssueColumn = ({ name, title }: IssueColumnPropsT) => {
 	return (
-		<section className={styles.column}>
+		<section>
 			<h2 className={styles.title}>{title}</h2>
+			<ul className={styles.issueWrapper}>
+				<li className={styles.issue}>
+					<Issue />
+				</li>
+				<li className={styles.issue}>
+					<Issue />
+				</li>
+				<li className={styles.issue}>
+					<Issue />
+				</li>
+			</ul>
 		</section>
 	);
 };

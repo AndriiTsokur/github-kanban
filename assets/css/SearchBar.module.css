@@ -1,3 +1,34 @@
-.input {
+.header {
   margin-bottom: 30px;
+}
+
+.info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 20px;
+     -moz-column-gap: 20px;
+          column-gap: 20px;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.repoName {
+  color: #6495ed;
+}
+
+.repoStar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.starText {
+  margin-left: 3px;
 }/*# sourceMappingURL=SearchBar.module.css.map */

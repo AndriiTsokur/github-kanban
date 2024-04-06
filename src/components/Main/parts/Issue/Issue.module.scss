@@ -1,0 +1,22 @@
+.container {
+	padding: 5px 10px;
+	border: 1px solid #000000;
+	border-radius: 10px;
+	background-color: #ffffff;
+}
+
+.title {
+	margin-bottom: 3px;
+	font-size: 16px;
+	color: #6495ed;
+}
+
+.description {
+	margin-bottom: 5px;
+	font-size: 14px;
+
+	&:last-child {
+		margin-bottom: 0;
+		font-size: 12px;
+	}
+}

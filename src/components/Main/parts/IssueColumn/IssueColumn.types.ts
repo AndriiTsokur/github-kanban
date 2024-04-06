@@ -1,3 +1,4 @@
-export type PropsT = {
+export type IssueColumnPropsT = {
+	name: string;
 	title: string;
 };
