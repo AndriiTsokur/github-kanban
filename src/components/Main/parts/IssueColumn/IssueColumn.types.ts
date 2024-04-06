@@ -1,4 +1,4 @@
 export type IssueColumnPropsT = {
-	name: string;
+	name?: string;
 	title: string;
 };

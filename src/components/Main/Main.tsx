@@ -13,7 +13,7 @@ export const Main: React.FC = () => {
 			<ul className={styles.issuesList}>
 				{issues.map(({ name, title }) => (
 					<li key={name} className={styles.listItem}>
-						<IssueColumn name={name} title={title} />
+						<IssueColumn title={title} />
 					</li>
 				))}
 			</ul>

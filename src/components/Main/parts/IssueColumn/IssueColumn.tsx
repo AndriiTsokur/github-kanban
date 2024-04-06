@@ -2,7 +2,7 @@ import styles from './IssueColumn.module.scss';
 import { IssueColumnPropsT } from './IssueColumn.types';
 import { Issue } from '../Issue';
 
-export const IssueColumn = ({ name, title }: IssueColumnPropsT) => {
+export const IssueColumn = ({ title }: IssueColumnPropsT) => {
 	return (
 		<section>
 			<h2 className={styles.title}>{title}</h2>
