@@ -1,21 +1,17 @@
 import styles from './IssueColumn.module.scss';
-import { IssueColumnPropsT } from './IssueColumn.types';
+import { IssueColumnT } from '@/services';
 import { Issue } from '../Issue';
 
-export const IssueColumn = ({ title }: IssueColumnPropsT) => {
+export const IssueColumn: React.FC<IssueColumnT> = ({ content, title }) => {
 	return (
 		<section>
 			<h2 className={styles.title}>{title}</h2>
 			<ul className={styles.issueWrapper}>
-				<li className={styles.issue}>
-					<Issue />
-				</li>
-				<li className={styles.issue}>
-					<Issue />
-				</li>
-				<li className={styles.issue}>
-					<Issue />
-				</li>
+				{content.map((item) => (
+					<li key={item.id} className={styles.issue}>
+						<Issue content={item} />
+					</li>
+				))}
 			</ul>
 		</section>
 	);

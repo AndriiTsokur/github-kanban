@@ -1,11 +1,21 @@
 import styles from './Issue.module.scss';
+import { IssueContentT } from '@/services';
 
-export const Issue: React.FC = () => {
+type IssuePropsT = {
+	content: IssueContentT;
+};
+
+export const Issue: React.FC<IssuePropsT> = ({ content }) => {
+	const { id, title, opened, author, comments } = content;
 	return (
 		<div className={styles.container}>
-			<h3 className={styles.title}>Some issue title</h3>
-			<p className={styles.description}>&#35;315 opened 3 days ago</p>
-			<p className={styles.description}>Admin | Comments: 3</p>
+			<h3 className={styles.title}>{title}</h3>
+			<p className={styles.description}>
+				&#35;{id} {opened}
+			</p>
+			<p className={styles.description}>
+				{author} | Comments: {comments}
+			</p>
 		</div>
 	);
 };
