@@ -13,7 +13,7 @@ export type IssueColumnT = {
 };
 
 export type IssueContentT = {
-	id: number;
+	id: string;
 	title: string;
 	opened: string;
 	author: string;

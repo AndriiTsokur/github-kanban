@@ -11,8 +11,4 @@
   padding: 10px;
   border: 2px solid #000000;
   background-color: #ced4da;
-}
-
-.issue:not(:last-child) {
-  margin-bottom: 10px;
 }/*# sourceMappingURL=IssueColumn.module.css.map */

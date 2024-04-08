@@ -23,6 +23,7 @@
 	"devDependencies": {
 		"@types/node": "^20.12.4",
 		"@types/react": "^18.2.66",
+		"@types/react-beautiful-dnd": "^13.1.8",
 		"@types/react-dom": "^18.2.22",
 		"@types/react-redux": "^7.1.33",
 		"@typescript-eslint/eslint-plugin": "^7.2.0",

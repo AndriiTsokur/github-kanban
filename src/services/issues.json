@@ -9,22 +9,22 @@
 			"title": "To Do",
 			"content": [
 				{
-					"id": 315,
-					"title": "Some TODO issue title",
+					"id": "315",
+					"title": "Some TODO 1 issue title",
 					"opened": "opened 3 days ago",
 					"author": "Admin",
 					"comments": 5
 				},
 				{
-					"id": 316,
-					"title": "Some TODO issue title",
+					"id": "316",
+					"title": "Some TODO 2 issue title",
 					"opened": "opened 3 days ago",
 					"author": "Admin",
 					"comments": 5
 				},
 				{
-					"id": 317,
-					"title": "Some TODO issue title",
+					"id": "317",
+					"title": "Some TODO 3 issue title",
 					"opened": "opened 3 days ago",
 					"author": "Admin",
 					"comments": 5
@@ -36,15 +36,15 @@
 			"title": "In Progress",
 			"content": [
 				{
-					"id": 416,
-					"title": "Some INPROGRESS issue title",
+					"id": "416",
+					"title": "Some INPROGRESS 1 issue title",
 					"opened": "opened 3 days ago",
 					"author": "Admin",
 					"comments": 5
 				},
 				{
-					"id": 417,
-					"title": "Some INPROGRESS issue title",
+					"id": "417",
+					"title": "Some INPROGRESS 2 issue title",
 					"opened": "opened 3 days ago",
 					"author": "Admin",
 					"comments": 5
@@ -56,8 +56,8 @@
 			"title": "Done",
 			"content": [
 				{
-					"id": 517,
-					"title": "Some DONE issue title",
+					"id": "517",
+					"title": "Some DONE 1 issue title",
 					"opened": "opened 3 days ago",
 					"author": "Admin",
 					"comments": 5
