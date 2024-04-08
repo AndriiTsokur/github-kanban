@@ -1,66 +1,71 @@
 {
-	"id": 0,
-	"owner": "Facebook",
-	"profileURL": "https://www",
-	"repoURL": "https://www",
-	"issues": [
+	"issuesState": [
 		{
-			"type": "TODO",
-			"title": "To Do",
-			"content": [
+			"owner": "Facebook",
+			"profileURL": "https://www",
+			"repoName": "React",
+			"repoURL": "https://www",
+			"repoStars": "194 K",
+			"issuesList": [
 				{
-					"id": "315",
-					"title": "Some TODO 1 issue title",
-					"opened": "opened 3 days ago",
-					"author": "Admin",
-					"comments": 5
+					"type": "TODO",
+					"title": "To Do",
+					"content": [
+						{
+							"id": "315",
+							"title": "Some TODO 1 issue title",
+							"opened": "opened 3 days ago",
+							"author": "Admin",
+							"comments": 5
+						},
+						{
+							"id": "316",
+							"title": "Some TODO 2 issue title",
+							"opened": "opened 3 days ago",
+							"author": "Admin",
+							"comments": 5
+						},
+						{
+							"id": "317",
+							"title": "Some TODO 3 issue title",
+							"opened": "opened 3 days ago",
+							"author": "Admin",
+							"comments": 5
+						}
+					]
 				},
 				{
-					"id": "316",
-					"title": "Some TODO 2 issue title",
-					"opened": "opened 3 days ago",
-					"author": "Admin",
-					"comments": 5
+					"type": "INPROGRESS",
+					"title": "In Progress",
+					"content": [
+						{
+							"id": "416",
+							"title": "Some INPROGRESS 1 issue title",
+							"opened": "opened 3 days ago",
+							"author": "Admin",
+							"comments": 5
+						},
+						{
+							"id": "417",
+							"title": "Some INPROGRESS 2 issue title",
+							"opened": "opened 3 days ago",
+							"author": "Admin",
+							"comments": 5
+						}
+					]
 				},
 				{
-					"id": "317",
-					"title": "Some TODO 3 issue title",
-					"opened": "opened 3 days ago",
-					"author": "Admin",
-					"comments": 5
-				}
-			]
-		},
-		{
-			"type": "INPROGRESS",
-			"title": "In Progress",
-			"content": [
-				{
-					"id": "416",
-					"title": "Some INPROGRESS 1 issue title",
-					"opened": "opened 3 days ago",
-					"author": "Admin",
-					"comments": 5
-				},
-				{
-					"id": "417",
-					"title": "Some INPROGRESS 2 issue title",
-					"opened": "opened 3 days ago",
-					"author": "Admin",
-					"comments": 5
-				}
-			]
-		},
-		{
-			"type": "DONE",
-			"title": "Done",
-			"content": [
-				{
-					"id": "517",
-					"title": "Some DONE 1 issue title",
-					"opened": "opened 3 days ago",
-					"author": "Admin",
-					"comments": 5
+					"type": "DONE",
+					"title": "Done",
+					"content": [
+						{
+							"id": "517",
+							"title": "Some DONE 1 issue title",
+							"opened": "opened 3 days ago",
+							"author": "Admin",
+							"comments": 5
+						}
+					]
 				}
 			]
 		}

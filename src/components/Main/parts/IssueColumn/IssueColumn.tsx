@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Droppable } from 'react-beautiful-dnd';
 
 import styles from './IssueColumn.module.scss';
@@ -11,6 +12,19 @@ type IssueColumnPropsT = {
 export const IssueColumn: React.FC<IssueColumnPropsT> = ({
 	data: { type, title, content },
 }) => {
+	const [enabled, setEnabled] = useState(false);
+
+	useEffect(() => {
+		const animation = requestAnimationFrame(() => setEnabled(true));
+
+		return () => {
+			cancelAnimationFrame(animation);
+			setEnabled(false);
+		};
+	}, []);
+
+	if (!enabled) return null;
+
 	return (
 		<Droppable droppableId={type}>
 			{(provided, snapshot) => (

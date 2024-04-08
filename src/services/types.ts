@@ -1,9 +1,14 @@
+export type DataT = {
+	issuesState: RepoT[];
+};
+
 export type RepoT = {
-	id: number;
 	owner: string;
 	profileURL: string;
+	repoName: string;
 	repoURL: string;
-	issues: IssueColumnT[];
+	repoStars: string;
+	issuesList: IssueColumnT[];
 };
 
 export type IssueColumnT = {

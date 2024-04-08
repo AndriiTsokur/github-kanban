@@ -1,16 +1,13 @@
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 
 import styles from './Main.module.scss';
+import { moveIssue, getIssues } from '@/redux/issues/issuesSlice';
 import { IssueColumn } from './parts';
-import { RepoT, issuesJSON } from '@/services';
 
 export const Main: React.FC = () => {
-	const initialColumns: RepoT = issuesJSON;
-	const [columns, setColumns] = useState(initialColumns.issues);
-
-	// const startTest = columns.find((col) => col.type === 'TODO');
-	// console.log(columns);
+	const dispatch = useDispatch();
+	const columns = useSelector(getIssues)[0].issuesList;
 
 	const onDragEnd = ({ source, destination }: DropResult) => {
 		// Make sure we have a valid destination
@@ -25,8 +22,6 @@ export const Main: React.FC = () => {
 		}
 
 		// Set start end end variables
-		// const start = columns[source.droppableId];
-		// const end = columns[destination.droppableId];
 		const start = columns.find((col) => col.type === source.droppableId);
 		const end = columns.find((col) => col.type === destination.droppableId);
 
@@ -49,9 +44,12 @@ export const Main: React.FC = () => {
 			};
 
 			// Update the state
-			setColumns((state) =>
-				state.map((item) => (item.type === newCol.type ? newCol : item)),
+			dispatch(
+				moveIssue(
+					columns.map((item) => (item.type === newCol.type ? newCol : item)),
+				),
 			);
+
 			return null;
 		} else {
 			// If start is different from end, we need to update multiple columns
@@ -68,7 +66,8 @@ export const Main: React.FC = () => {
 			};
 
 			// Make a new end list array
-			const newEndList = end!.content;
+			// const newEndList = end!.content;
+			const newEndList = [...end!.content];
 
 			// Insert the item into the end list
 			newEndList.splice(destination.index, 0, start!.content[source.index]);
@@ -81,17 +80,20 @@ export const Main: React.FC = () => {
 			};
 
 			// Update the state
-			setColumns((state) =>
-				state.map((item) => {
-					if (item.type === newStartCol.type) {
-						return newStartCol;
-					} else if (item.type === newEndCol.type) {
-						return newEndCol;
-					} else {
-						return item;
-					}
-				}),
+			dispatch(
+				moveIssue(
+					columns.map((item) => {
+						if (item.type === newStartCol.type) {
+							return newStartCol;
+						} else if (item.type === newEndCol.type) {
+							return newEndCol;
+						} else {
+							return item;
+						}
+					}),
+				),
 			);
+
 			return null;
 		}
 	};
