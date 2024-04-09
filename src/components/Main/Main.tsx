@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { DragDropContext } from 'react-beautiful-dnd';
 
 import styles from './Main.module.scss';
-import { getIssues } from '@/redux/issues/issuesSlice';
+import { getIssues } from '@/redux/issuesSlice';
 import { IssueColumn } from './parts';
 import { handleDrag } from './utils';
 

@@ -2,7 +2,7 @@ import { Dispatch } from '@reduxjs/toolkit';
 import { DropResult } from 'react-beautiful-dnd';
 
 import { IssueColumnT } from '@/services';
-import { moveIssue } from '@/redux/issues/issuesSlice';
+import { moveIssue } from '@/redux/issuesSlice';
 
 export const handleDrag =
 	(columns: IssueColumnT[], dispatch: Dispatch) =>

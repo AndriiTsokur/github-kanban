@@ -11,7 +11,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { issuesReducer } from './issues/issuesSlice';
+import { issuesReducer } from './issuesSlice';
 
 const issuesPersistConfig = {
 	key: 'issues',
