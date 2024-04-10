@@ -3,6 +3,7 @@ export type DataT = {
 };
 
 export type RepoT = {
+	visited: string;
 	owner: string;
 	profileURL: string;
 	repoName: string;

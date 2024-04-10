@@ -12,6 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import { issuesReducer } from './issuesSlice';
+import { fetchedIssuesReducer } from './fetchedIssuesSlice';
 
 const issuesPersistConfig = {
 	key: 'issues',
@@ -22,6 +23,7 @@ const issuesPersistConfig = {
 export const store = configureStore({
 	reducer: {
 		issues: persistReducer(issuesPersistConfig, issuesReducer),
+		fetchedIssues: fetchedIssuesReducer,
 	},
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware({

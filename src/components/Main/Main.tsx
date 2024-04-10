@@ -2,13 +2,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { DragDropContext } from 'react-beautiful-dnd';
 
 import styles from './Main.module.scss';
-import { getIssues } from '@/redux/issuesSlice';
+import { selectIssues } from '@/redux/issuesSlice';
 import { IssueColumn } from './parts';
 import { handleDrag } from './utils';
 
 export const Main: React.FC = () => {
 	const dispatch = useDispatch();
-	const columns = useSelector(getIssues)[0].issuesList;
+	const visitedIssues = useSelector(selectIssues);
+	const columns = visitedIssues[0].issuesList;
 
 	return (
 		<main>

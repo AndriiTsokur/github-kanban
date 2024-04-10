@@ -1,0 +1,29 @@
+.info {
+	display: flex;
+	align-items: center;
+	column-gap: 20px;
+	margin-top: 10px;
+	font-size: 14px;
+}
+
+.repoName {
+	color: #6495ed;
+
+	a {
+		color: currentColor;
+		transition: color 250ms;
+
+		&:hover {
+			color: #ff0000;
+		}
+	}
+}
+
+.repoStar {
+	display: flex;
+	align-items: center;
+}
+
+.starText {
+	margin-left: 3px;
+}

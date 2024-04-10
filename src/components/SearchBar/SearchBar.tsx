@@ -1,9 +1,13 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
-import { StarFilled } from '@ant-design/icons';
 import styles from './SearchBar.module.scss';
+import { fetchIssuesThunk, fetchStarsThunk } from '@/redux/operations';
+import { RepoInfo } from './parts';
 
 export const SearchBar: React.FC = () => {
+	const dispatch = useDispatch();
+
 	const [inputValue, setInputValue] = useState('');
 
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -12,7 +16,8 @@ export const SearchBar: React.FC = () => {
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		console.log(inputValue);
+		dispatch(fetchIssuesThunk(inputValue));
+		dispatch(fetchStarsThunk(inputValue));
 	};
 
 	return (
@@ -29,13 +34,7 @@ export const SearchBar: React.FC = () => {
 				<button type="submit">Load issues</button>
 			</form>
 
-			<div className={styles.info}>
-				<p className={styles.repoName}>Facebook &gt; React</p>
-				<div className={styles.repoStar}>
-					<StarFilled style={{ fontSize: '20px', color: 'orange' }} />
-					<p className={styles.starText}>194 K stars</p>
-				</div>
-			</div>
+			<RepoInfo />
 		</header>
 	);
 };

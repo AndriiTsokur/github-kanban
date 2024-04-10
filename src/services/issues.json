@@ -1,10 +1,11 @@
 {
 	"issuesState": [
 		{
+			"visited": "April 10, 2024",
 			"owner": "Facebook",
-			"profileURL": "https://www",
+			"profileURL": "https://github.com/facebook",
 			"repoName": "React",
-			"repoURL": "https://www",
+			"repoURL": "https://github.com/facebook/react",
 			"repoStars": "194 K",
 			"issuesList": [
 				{
