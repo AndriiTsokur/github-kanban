@@ -5,6 +5,9 @@
   background-color: #ffffff;
   cursor: -webkit-grab;
   cursor: grab;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: break-spaces;
 }
 .container:not(:last-child) {
   margin-bottom: 10px;

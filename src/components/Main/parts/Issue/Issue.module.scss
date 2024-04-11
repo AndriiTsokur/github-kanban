@@ -4,6 +4,9 @@
 	border-radius: 10px;
 	background-color: #ffffff;
 	cursor: grab;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: break-spaces;
 
 	&:not(:last-child) {
 		margin-bottom: 10px;

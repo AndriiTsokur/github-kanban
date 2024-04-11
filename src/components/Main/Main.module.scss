@@ -1,8 +1,17 @@
 .issuesList {
 	display: flex;
 	column-gap: 20px;
+	min-height: 82vh;
 }
 
 .listItem {
 	flex-basis: calc((100% - 2 * 20px) / 3);
+	min-width: 30%;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+
+	& > section {
+		flex-grow: 1;
+	}
 }
