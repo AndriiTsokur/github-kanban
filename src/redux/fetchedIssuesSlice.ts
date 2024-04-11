@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { fetchIssuesThunk, fetchStarsThunk } from './operations';
 
 const initialState = {
-	fetchedIssuesState: [],
+	issues: [],
 	path: '',
 	stars: '',
 	isLoading: false,
@@ -17,13 +17,13 @@ const fetchedIssuesSlice = createSlice({
 		builder
 			// Fetching Issues
 			.addCase(fetchIssuesThunk.pending, (state) => {
-				state.fetchedIssuesState = [];
+				state.issues = [];
 				state.path = '';
 				state.isLoading = true;
 				state.error = null;
 			})
 			.addCase(fetchIssuesThunk.fulfilled, (state, action) => {
-				state.fetchedIssuesState = action.payload.data;
+				state.issues = action.payload.data;
 				state.path = action.payload.repoAddress;
 				state.isLoading = false;
 			})

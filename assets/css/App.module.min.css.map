@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../src/components/App/App.module.scss"],"names":[],"mappings":"AAAA,YACC,mBAAA,CAAA,mBAAA,CAAA,YAAA,CACA,uBAAA,CAAA,oBAAA,CAAA,eAAA,CAGD,UACC,6CAAA,CAAA,gCAAA","file":"App.module.min.css","sourcesContent":[".issuesList {\n\tdisplay: flex;\n\tcolumn-gap: 20px;\n}\n\n.listItem {\n\tflex-basis: calc((100% - 2 * 20px) / 3);\n}\n"]}
+{"version":3,"sources":["../../src/components/App/App.module.scss"],"names":[],"mappings":"AAAA,eACC,kBAAA","file":"App.module.min.css","sourcesContent":[".mainContainer {\n\tpadding-block: 20px;\n}\n"]}

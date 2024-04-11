@@ -1,12 +1,12 @@
 {
 	"issuesState": [
 		{
-			"visited": "April 10, 2024",
-			"owner": "Facebook",
-			"profileURL": "https://github.com/facebook",
-			"repoName": "React",
-			"repoURL": "https://github.com/facebook/react",
-			"repoStars": "194 K",
+			"visited": "Wed Apr 10 2024",
+			"owner": "Andriitsokur",
+			"profileURL": "https://github.com/AndriiTsokur",
+			"repoName": "Github-kanban",
+			"repoURL": "https://github.com/AndriiTsokur/github-kanban",
+			"repoStars": "999 K",
 			"issuesList": [
 				{
 					"type": "TODO",

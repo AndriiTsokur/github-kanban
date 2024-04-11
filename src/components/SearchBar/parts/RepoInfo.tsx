@@ -46,78 +46,85 @@ export const RepoInfo = () => {
 				issuesList: [],
 			};
 
-			const extractedIssues: IssueColumnT[] = [
-				{
-					type: 'TODO',
-					title: 'To Do',
-					content: [],
-				},
-				{
-					type: 'INPROGRESS',
-					title: 'In Progress',
-					content: [],
-				},
-				{
-					type: 'DONE',
-					title: 'Done',
-					content: [],
-				},
-			];
+			if (fetchedIssues.issues.length !== 0) {
+				const extractedIssues: IssueColumnT[] = [
+					{
+						type: 'TODO',
+						title: 'To Do',
+						content: [],
+					},
+					{
+						type: 'INPROGRESS',
+						title: 'In Progress',
+						content: [],
+					},
+					{
+						type: 'DONE',
+						title: 'Done',
+						content: [],
+					},
+				];
 
-			fetchedIssues.fetchedIssuesState.map((issue: any) => {
-				// Calculation of time elapsed since the date of the Issue creation
-				const issueDate: Date = new Date(issue.created_at);
-				const currentDate: Date = new Date();
-				const difference: number = currentDate.getTime() - issueDate.getTime();
-				const daysPassed: number = Math.round(
-					difference / (1000 * 60 * 60 * 24),
-				);
+				fetchedIssues.issues.map((issue: any) => {
+					// Calculation of time elapsed since the date of the Issue creation
+					const issueDate: Date = new Date(issue.created_at);
+					const currentDate: Date = new Date();
+					const difference: number =
+						currentDate.getTime() - issueDate.getTime();
+					const daysPassed: number = Math.round(
+						difference / (1000 * 60 * 60 * 24),
+					);
 
-				// Preparing separated Issues data
-				const issueDetails: IssueContentT = {
-					id: issue.number.toString(),
-					title: issue.title,
-					opened: `opened ${daysPassed < 1 ? 'today' : daysPassed + ' days ago'}`,
-					author: issue.user.login,
-					comments: issue.comments,
-				};
+					// Preparing separated Issues data
+					const issueDetails: IssueContentT = {
+						id: issue.number.toString(),
+						title: issue.title,
+						opened: `opened ${daysPassed < 1 ? 'today' : daysPassed + ' days ago'}`,
+						author: issue.user.login,
+						comments: issue.comments,
+					};
 
-				if (issue.state === 'closed') {
-					extractedIssues
-						.find((issue) => issue.type === 'DONE')
-						?.content.push(issueDetails);
-				} else if (issue.assignees.length > 0) {
-					extractedIssues
-						.find((issue) => issue.type === 'INPROGRESS')
-						?.content.push(issueDetails);
-				} else {
-					extractedIssues
-						.find((issue) => issue.type === 'TODO')
-						?.content.push(issueDetails);
-				}
-			});
+					if (issue.state === 'closed') {
+						extractedIssues
+							.find((issue) => issue.type === 'DONE')
+							?.content.push(issueDetails);
+					} else if (issue.assignees.length > 0) {
+						extractedIssues
+							.find((issue) => issue.type === 'INPROGRESS')
+							?.content.push(issueDetails);
+					} else {
+						extractedIssues
+							.find((issue) => issue.type === 'TODO')
+							?.content.push(issueDetails);
+					}
+				});
 
-			extractedData.issuesList = [...extractedIssues];
+				extractedData.issuesList = [...extractedIssues];
+			}
+
 			dispatch(addRepo(extractedData));
-			// console.log(extractedData);
 		}
 	}
 
 	return (
-		<div className={styles.info}>
-			<p className={styles.repoName}>
-				<a href={currentRepo.profileURL} target="_blank">
-					{currentRepo.owner}
-				</a>{' '}
-				&gt;{' '}
-				<a href={currentRepo.repoURL} target="_blank">
-					{currentRepo.repoName}
-				</a>
-			</p>
-			<div className={styles.repoStar}>
-				<StarFilled style={{ fontSize: '20px', color: 'orange' }} />
-				<p className={styles.starText}>{currentRepo.repoStars} stars</p>
-			</div>
-		</div>
+		<>
+			{visitedRepos.length > 0 && (
+				<div className={styles.info}>
+					<p className={styles.repoName}>
+						<a href={currentRepo.profileURL} target="_blank">
+							{currentRepo.owner}
+						</a>{' '}
+						&gt;{' '}
+						<a href={currentRepo.repoURL} target="_blank">
+							{currentRepo.repoName}
+						</a>
+					</p>
+					<div className={styles.repoStar}>
+						<StarFilled style={{ fontSize: '20px', color: 'orange' }} />
+						<p className={styles.starText}>{currentRepo.repoStars}</p>
+					</div>
+				</div>
+			)}
+		</>
 	);
 };

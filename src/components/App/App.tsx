@@ -1,10 +1,14 @@
-import { SearchBar, Main } from '@/components';
+import styles from './App.module.scss';
+import { History, Main, SearchBar } from '@/components';
 
 export const App: React.FC = () => {
 	return (
 		<>
-			<SearchBar />
-			<Main />
+			<History />
+			<div className={styles.mainContainer}>
+				<SearchBar />
+				<Main />
+			</div>
 		</>
 	);
 };
