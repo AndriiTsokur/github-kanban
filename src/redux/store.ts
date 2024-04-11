@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import {
 	persistStore,
 	persistReducer,
@@ -10,7 +10,6 @@ import {
 	REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-
 import { issuesReducer } from './issuesSlice';
 import { fetchedIssuesReducer } from './fetchedIssuesSlice';
 
@@ -20,11 +19,15 @@ const issuesPersistConfig = {
 	whitelist: ['issuesState'],
 };
 
+const persistedReducer = persistReducer(issuesPersistConfig, issuesReducer);
+
+const reducers = combineReducers({
+	issues: persistedReducer,
+	fetchedIssues: fetchedIssuesReducer,
+});
+
 export const store = configureStore({
-	reducer: {
-		issues: persistReducer(issuesPersistConfig, issuesReducer),
-		fetchedIssues: fetchedIssuesReducer,
-	},
+	reducer: reducers,
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware({
 			serializableCheck: {
