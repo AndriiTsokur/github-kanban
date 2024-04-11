@@ -16,8 +16,8 @@ export const SearchBar: React.FC = () => {
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		dispatch(fetchIssuesThunk(inputValue));
-		dispatch(fetchStarsThunk(inputValue));
+		dispatch<any>(fetchIssuesThunk(inputValue));
+		dispatch<any>(fetchStarsThunk(inputValue));
 	};
 
 	return (
