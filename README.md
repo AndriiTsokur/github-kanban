@@ -68,24 +68,6 @@ You should use exactly the listed technologies or one of them if it is allowed:
   - Vitest
 - any other library you need
 
-## Assessment
-
-What will we assess:
-
-- workability: how your application works
-- projects structure: how you structure your files
-- code quality: how you write clean, readable code (feel free to install and use
-  ESLint and Prettier)
-- knowledge of React and its ecosystem: how you compose and use libraries
-  together
-- testing: how you can test your code
-
 ## Mockups
 
 ![Design](./public/design.png)
-
-## How to complete the task
-
-- create a new public repo on Github
-- develop the application according to the requirements
-- send us the link to your repo
