@@ -6,8 +6,7 @@ Implement GitHub repo issues viewer as a kanban board
 
 I took the opportunity and decided to create my own template for a React with
 TypeScript project built on Vite with automatic deployment of gh-pages. Feel
-free to use it if needed:
-https://github.com/AndriiTsokur/template-vite-react-ts
+free to use it if needed: https://github.com/AndriiTsokur/template-vite-react-ts
 
 In addition to the stated tasks, I thought it would be useful to add a feature
 such as a history of repo visited, as well as a service tool such as a "Clear
@@ -83,7 +82,7 @@ What will we assess:
 
 ## Mockups
 
-![Design](./design.png)
+![Design](./public/design.png)
 
 ## How to complete the task
 
