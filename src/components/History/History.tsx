@@ -1,4 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { Button } from 'antd';
+
 import styles from './History.module.scss';
 import {
 	clearHistory,
@@ -10,12 +12,12 @@ export const History: React.FC = () => {
 	const dispatch = useDispatch();
 	const historyList = useSelector(selectIssues);
 
-	const handleHistory = () => {
+	const handleClearHistory = () => {
 		if (historyList.length > 1) dispatch(clearHistory());
 	};
 
 	const selectRepo = (idx: number) => {
-		dispatch(moveIssueToTop(idx));
+		if (idx > 0) dispatch(moveIssueToTop(idx));
 	};
 
 	return (
@@ -43,13 +45,15 @@ export const History: React.FC = () => {
 							</p>
 						</div>
 
-						<button
-							type="button"
-							onClick={handleHistory}
-							className={styles.button}
+						<Button
+							onClick={handleClearHistory}
+							block
+							style={{ marginTop: '30px' }}
+							type="primary"
+							size="small"
 						>
 							Clear History
-						</button>
+						</Button>
 					</div>
 
 					<h3 className={styles.subtitle}>

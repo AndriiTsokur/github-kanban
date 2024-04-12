@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../src/components/SearchBar/SearchBar.module.scss","SearchBar.module.css"],"names":[],"mappings":"AAAA;EACC,mBAAA;ACCD","file":"SearchBar.module.css","sourcesContent":[".header {\n\tmargin-bottom: 30px;\n}\n",".header {\n  margin-bottom: 30px;\n}"]}
+{"version":3,"sources":["../../src/components/SearchBar/SearchBar.module.scss","SearchBar.module.css"],"names":[],"mappings":"AAAA;EACC,mBAAA;ACCD","file":"SearchBar.module.css","sourcesContent":[".header {\n\tmargin-bottom: 10px;\n}\n",".header {\n  margin-bottom: 10px;\n}"]}

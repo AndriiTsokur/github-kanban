@@ -1,12 +1,16 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { ChangeEvent, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Input } from 'antd';
 
 import styles from './SearchBar.module.scss';
 import { fetchIssuesThunk, fetchStarsThunk } from '@/redux/operations';
-import { RepoInfo } from './parts';
+import { selectFetchedIssues } from '@/redux/fetchedIssuesSlice';
+
+const { Search } = Input;
 
 export const SearchBar: React.FC = () => {
 	const dispatch = useDispatch();
+	const { isLoading } = useSelector(selectFetchedIssues);
 
 	const [inputValue, setInputValue] = useState('');
 
@@ -14,27 +18,25 @@ export const SearchBar: React.FC = () => {
 		setInputValue(e.target.value.trim().toLowerCase());
 	};
 
-	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
+	const handleSubmit = () => {
 		dispatch<any>(fetchIssuesThunk(inputValue));
 		dispatch<any>(fetchStarsThunk(inputValue));
 	};
 
 	return (
 		<header className={styles.header}>
-			<form onSubmit={handleSubmit}>
-				<input
-					value={inputValue}
-					onChange={handleInputChange}
-					// onInvalid={handleInvalidInput}
-					// pattern="^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}\/[a-zA-Z0-9._-]{1,100}$"
-					placeholder="[repo owner]/[repo name]"
-					required
-				/>
-				<button type="submit">Load issues</button>
-			</form>
-
-			<RepoInfo />
+			<Search
+				value={inputValue}
+				onChange={handleInputChange}
+				addonBefore="https://github.com/"
+				placeholder="repo_owner/repo_name"
+				allowClear
+				enterButton="Load issues"
+				size="middle"
+				loading={isLoading}
+				onSearch={handleSubmit}
+				style={{ minWidth: '100%', fontSize: '10px' }}
+			/>
 		</header>
 	);
 };

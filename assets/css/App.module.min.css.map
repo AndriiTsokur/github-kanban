@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../src/components/App/App.module.scss"],"names":[],"mappings":"AAAA,eACC,kBAAA","file":"App.module.min.css","sourcesContent":[".mainContainer {\n\tpadding-block: 20px;\n}\n"]}
+{"version":3,"sources":["../../src/components/App/App.module.scss"],"names":[],"mappings":"AAAA,eACC,wBAAA,CACA,kBAAA","file":"App.module.min.css","sourcesContent":[".mainContainer {\n\twidth: calc(100% - 220px);\n\tpadding-block: 20px;\n}\n"]}

@@ -58,12 +58,6 @@ li > .repoWrapper:hover {
   font-weight: 500;
 }
 
-.button {
-  display: block;
-  margin-top: 30px;
-  margin-inline: auto;
-}
-
 .repoItem {
   cursor: pointer;
 }

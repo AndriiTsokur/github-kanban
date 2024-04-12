@@ -1,5 +1,5 @@
 import styles from './App.module.scss';
-import { History, Main, SearchBar } from '@/components';
+import { History, Main, RepoInfo, SearchBar } from '@/components';
 
 export const App: React.FC = () => {
 	return (
@@ -7,6 +7,7 @@ export const App: React.FC = () => {
 			<History />
 			<div className={styles.mainContainer}>
 				<SearchBar />
+				<RepoInfo />
 				<Main />
 			</div>
 		</>
