@@ -46,7 +46,7 @@ export const SearchBar: React.FC = () => {
 				size="middle"
 				loading={isLoading}
 				onSearch={onSearch}
-				style={{ minWidth: '100%', fontSize: '10px' }}
+				style={{ minWidth: '100%' }}
 			/>
 		</header>
 	);

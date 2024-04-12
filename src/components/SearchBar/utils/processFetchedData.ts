@@ -37,16 +37,39 @@ export const processFetchedData = ({
 
 		// If the repository has not been visited yet, creating the new Issue object to add it to the top of the global Issues state array (it will appear on the screen)
 		if (checkVisitedIdx === -1) {
+			// Let's bring the number of repo's stars to a compact form
+			let stars: string;
+
+			switch (true) {
+				case !fetchedData.stars || fetchedData.stars === 0:
+					stars = 'This repo has no stars yet';
+					break;
+
+				case fetchedData.stars < 1000:
+					stars = `${fetchedData.stars.toString()} stars`;
+					break;
+
+				case fetchedData.stars < 1000000:
+					stars = `${(fetchedData.stars / 1000).toFixed(1)} K stars`;
+					break;
+
+				default:
+					stars = `${(fetchedData.stars / 1000000).toFixed(1)} M stars`;
+					break;
+			}
+
+			// Filling in the information part of the repo record
 			const extractedData: RepoT = {
 				visited: new Date().toDateString(),
 				owner: fetchedRepoOwner,
 				profileURL: `https://github.com/${fetchedRepoOwner.toLowerCase()}`,
 				repoName: fetchedRepoName,
 				repoURL: `https://github.com/${fetchedData.path}`,
-				repoStars: `${Math.floor(fetchedData.stars / 1000).toString()} K stars`,
+				repoStars: stars,
 				issuesList: [],
 			};
 
+			// Filling in the issues part of the repo record
 			if (fetchedData.issues.length !== 0) {
 				const extractedIssues: IssueColumnT[] = [
 					{
@@ -85,6 +108,7 @@ export const processFetchedData = ({
 						comments: issue.comments,
 					};
 
+					// Sorting Issues by type
 					if (issue.state === 'closed') {
 						extractedIssues
 							.find((issue) => issue.type === 'DONE')
