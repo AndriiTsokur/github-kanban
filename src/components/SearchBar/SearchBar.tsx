@@ -1,16 +1,21 @@
 import { ChangeEvent, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Input } from 'antd';
+import type { SearchProps } from 'antd/es/input/Search';
 
 import styles from './SearchBar.module.scss';
 import { fetchIssuesThunk, fetchStarsThunk } from '@/redux/operations';
+import { selectIssues } from '@/redux/issuesSlice';
 import { selectFetchedIssues } from '@/redux/fetchedIssuesSlice';
+import { processFetchedData } from './utils';
 
 const { Search } = Input;
 
 export const SearchBar: React.FC = () => {
 	const dispatch = useDispatch();
-	const { isLoading } = useSelector(selectFetchedIssues);
+	const visitedRepos = useSelector(selectIssues);
+	const fetchedData = useSelector(selectFetchedIssues);
+	const { error, isLoading } = fetchedData;
 
 	const [inputValue, setInputValue] = useState('');
 
@@ -18,10 +23,16 @@ export const SearchBar: React.FC = () => {
 		setInputValue(e.target.value.trim().toLowerCase());
 	};
 
-	const handleSubmit = () => {
-		dispatch<any>(fetchIssuesThunk(inputValue));
-		dispatch<any>(fetchStarsThunk(inputValue));
+	const onSearch: SearchProps['onSearch'] = (value) => {
+		if (value) {
+			dispatch<any>(fetchIssuesThunk(value));
+			dispatch<any>(fetchStarsThunk(value));
+		}
 	};
+
+	if (!error && !isLoading) {
+		processFetchedData({ dispatch, fetchedData, visitedRepos });
+	}
 
 	return (
 		<header className={styles.header}>
@@ -34,7 +45,7 @@ export const SearchBar: React.FC = () => {
 				enterButton="Load issues"
 				size="middle"
 				loading={isLoading}
-				onSearch={handleSubmit}
+				onSearch={onSearch}
 				style={{ minWidth: '100%', fontSize: '10px' }}
 			/>
 		</header>

@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Button } from 'antd';
+import { Button, Popconfirm } from 'antd';
+import type { PopconfirmProps } from 'antd';
 
 import styles from './History.module.scss';
 import {
@@ -7,17 +8,27 @@ import {
 	moveIssueToTop,
 	selectIssues,
 } from '@/redux/issuesSlice';
+import { setToInitialState } from '@/redux/fetchedIssuesSlice';
 
 export const History: React.FC = () => {
 	const dispatch = useDispatch();
 	const historyList = useSelector(selectIssues);
 
-	const handleClearHistory = () => {
-		if (historyList.length > 1) dispatch(clearHistory());
+	let clearHistoryIsAvailable = false;
+	if (historyList.length > 1) clearHistoryIsAvailable = true;
+
+	const handleClearHistory: PopconfirmProps['onConfirm'] = () => {
+		if (clearHistoryIsAvailable) {
+			dispatch(setToInitialState());
+			dispatch(clearHistory());
+		}
 	};
 
 	const selectRepo = (idx: number) => {
-		if (idx > 0) dispatch(moveIssueToTop(idx));
+		if (idx > 0) {
+			dispatch(setToInitialState());
+			dispatch(moveIssueToTop(idx));
+		}
 	};
 
 	return (
@@ -45,15 +56,26 @@ export const History: React.FC = () => {
 							</p>
 						</div>
 
-						<Button
-							onClick={handleClearHistory}
-							block
-							style={{ marginTop: '30px' }}
-							type="primary"
-							size="small"
+						<Popconfirm
+							title="Delete the History"
+							description="Are you sure to delete the History?"
+							onConfirm={handleClearHistory}
+							// onCancel={cancel}
+							okText="Yes"
+							cancelText="No"
 						>
-							Clear History
-						</Button>
+							<Button
+								// onClick={handleClearHistory}
+								disabled={!clearHistoryIsAvailable}
+								danger
+								block
+								style={{ marginTop: '30px' }}
+								type="primary"
+								size="small"
+							>
+								Clear History
+							</Button>
+						</Popconfirm>
 					</div>
 
 					<h3 className={styles.subtitle}>

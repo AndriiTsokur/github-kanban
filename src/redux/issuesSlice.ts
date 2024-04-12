@@ -11,7 +11,7 @@ const issuesSlice = createSlice({
 	initialState,
 	reducers: {
 		addRepo(state, action) {
-			state.issuesState.push(action.payload);
+			state.issuesState.unshift(action.payload);
 		},
 		clearHistory(state) {
 			state.issuesState.splice(1);

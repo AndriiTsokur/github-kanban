@@ -1,0 +1,1 @@
+export { processFetchedData } from './processFetchedData';

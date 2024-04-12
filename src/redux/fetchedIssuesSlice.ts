@@ -12,7 +12,15 @@ const initialState = {
 const fetchedIssuesSlice = createSlice({
 	name: 'fetchedIssues',
 	initialState,
-	reducers: {},
+	reducers: {
+		setToInitialState(state) {
+			state.issues = [];
+			state.path = '';
+			state.stars = '';
+			state.isLoading = false;
+			state.error = null;
+		},
+	},
 	extraReducers: (builder) =>
 		builder
 			// Fetching Issues
@@ -42,4 +50,5 @@ const fetchedIssuesSlice = createSlice({
 });
 
 export const selectFetchedIssues = (state: any) => state.fetchedIssues;
+export const { setToInitialState } = fetchedIssuesSlice.actions;
 export const fetchedIssuesReducer = fetchedIssuesSlice.reducer;
